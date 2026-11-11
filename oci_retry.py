@@ -12,7 +12,7 @@ import datetime
 # ╚══════════════════════════════════════════════════════╝
 
 # ─── Configuration ───────────────────────────────────────
-INSTANCE_NAME = "arm-server"
+INSTANCE_NAME = "v380-server"
 UBUNTU_VERSION = "24.04"  # OS for the new instance: "24.04" (default), "26.04" or "22.04"
 ARM_OCPUS = 2
 ARM_MEMORY_IN_GBS = 12
@@ -139,7 +139,7 @@ def create_vcn_and_subnet():
         if security_lists:
             existing_egress = security_lists[0].egress_security_rules
             new_ingress = []
-            for port in [22, 80, 443]:
+            for port in [22]:
                 new_ingress.append(
                     oci.core.models.IngressSecurityRule(
                         protocol="6",
